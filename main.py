@@ -3,29 +3,36 @@
 from collections import namedtuple
 
 Bracket = namedtuple("Bracket", ["char", "position"])
-
+opening_brackets_stack = []
 
 def are_matching(left, right):
     return (left + right) in ["()", "[]", "{}"]
 
 
 def find_mismatch(text):
-    opening_brackets_stack = []
     for i, next in enumerate(text):
         if next in "([{":
-            # Process opening bracket, write your code here
+            opening_brackets_stack.append(next)
             pass
 
         if next in ")]}":
-            # Process closing bracket, write your code here
+            status = True
+            print(*opening_brackets_stack)
+
+            if (are_matching(opening_brackets_stack[len(opening_brackets_stack)],next) != True):
+                status = False
+            else:
+                status = True
+                opening_brackets_stack[len(opening_brackets_stack)] = ""
+
+            if status != True:
+                print(i+1)
             pass
 
 
 def main():
     text = input()
     mismatch = find_mismatch(text)
-    # Printing answer, write your code here
-
 
 if __name__ == "__main__":
     main()
