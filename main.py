@@ -17,22 +17,29 @@ def find_mismatch(text):
 
         if next in ")]}":
             status = True
-            print(*opening_brackets_stack)
+            #print(*opening_brackets_stack)
+            #print(len(opening_brackets_stack)-1)
 
-            if (are_matching(opening_brackets_stack[len(opening_brackets_stack)],next) != True):
+            if (are_matching(opening_brackets_stack[len(opening_brackets_stack)-1],next) != True):
                 status = False
             else:
                 status = True
-                opening_brackets_stack[len(opening_brackets_stack)] = ""
+                opening_brackets_stack.pop(len(opening_brackets_stack)-1)
 
             if status != True:
-                print(i+1)
+                return i+1
             pass
 
 
 def main():
+    check_type = input()
     text = input()
     mismatch = find_mismatch(text)
+    
+    if mismatch != None:
+        print(mismatch)
+    else:
+        print("Success")
 
 if __name__ == "__main__":
     main()
