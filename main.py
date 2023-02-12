@@ -31,22 +31,9 @@ def find_mismatch(text):
         return len(opening_brackets_stack)
 
 def main():
-    while True:
-        check_type = input()
-        if check_type == "F" or check_type == "I" or check_type == "f" or check_type == "i":
-            if check_type == "F" or check_type == "f":
-                test_file = input()
-                f = open(f"./test/{test_file}","r")
-                content = f.read()
-                mismatch = find_mismatch(content)
-                f.close()
-                break
-            else:
-                text = input()
-                mismatch = find_mismatch(text)
-                break
-        else:
-            continue
+    check_type = input()
+    text = input()
+    mismatch = find_mismatch(text)
     
     if mismatch != None:
         print(mismatch)
