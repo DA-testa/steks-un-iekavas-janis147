@@ -33,8 +33,8 @@ def find_mismatch(text):
 def main():
     while True:
         check_type = input("F or I:> ")
-        if check_type == "F" or check_type == "I":
-            if check_type == "F":
+        if check_type == "F" or check_type == "I" or check_type == "f" or check_type == "i":
+            if check_type == "F" or check_type == "f":
                 test_file = input("Test File Name:> ")
                 f = open(f"./test/{test_file}","r")
                 content = f.read()
