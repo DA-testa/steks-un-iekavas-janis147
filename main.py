@@ -3,7 +3,6 @@ from collections import namedtuple
 
 Bracket = namedtuple("Bracket", ["char", "position"])
 opening_brackets_stack = []
-closing_brackets_stack = []
 
 def are_matching(left, right):
     return (left + right) in ["()", "[]", "{}"]
